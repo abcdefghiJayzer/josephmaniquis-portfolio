@@ -47,7 +47,7 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
   
 
   return (
