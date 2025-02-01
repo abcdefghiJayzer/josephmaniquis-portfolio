@@ -53,14 +53,17 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
   return (
     <nav className="top-0 z-50 sticky bg-neutral-950 px-5">
       <div className="flex flex-wrap justify-between items-center mx-auto pt-4 pb-2 max-w-screen-xl">
-        <a className="flex items-center">
+        <button
+          onClick={() => scrollToSection(homeRef, "home")}
+          className="flex items-center"
+        >
           <span className="md:block hidden font-semibold text-2xl text-white whitespace-nowrap self-center">
             Joseph Maniquis
           </span>
           <span className="block md:hidden font-semibold text-2xl text-white whitespace-nowrap self-center">
             JM
           </span>
-        </a>
+        </button>
 
         <button
           onClick={toggleMenu}
