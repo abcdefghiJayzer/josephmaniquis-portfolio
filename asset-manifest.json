@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/josephmaniquis-portfolio/static/css/main.adeb26bc.css",
+    "main.js": "/josephmaniquis-portfolio/static/js/main.027b8038.js",
+    "static/js/453.0c513b9e.chunk.js": "/josephmaniquis-portfolio/static/js/453.0c513b9e.chunk.js",
+    "static/media/vid4.mp4": "/josephmaniquis-portfolio/static/media/vid4.abf1eef2a6c8153874ff.mp4",
+    "static/media/vid1.mp4": "/josephmaniquis-portfolio/static/media/vid1.32abeb680acd96913d40.mp4",
+    "static/media/vid2.mp4": "/josephmaniquis-portfolio/static/media/vid2.c2e93512b2578123c99c.mp4",
+    "static/media/vid3.mp4": "/josephmaniquis-portfolio/static/media/vid3.70066a145ddeff73e00e.mp4",
+    "static/media/7.png": "/josephmaniquis-portfolio/static/media/7.576d5977188df7ee50e0.png",
+    "static/media/6.1.png": "/josephmaniquis-portfolio/static/media/6.1.c8bb72cf4b1b9c44c500.png",
+    "static/media/1.1.png": "/josephmaniquis-portfolio/static/media/1.1.995827e420b3b1a47b3b.png",
+    "static/media/6.png": "/josephmaniquis-portfolio/static/media/6.ff949bdb3eb0aebfb9df.png",
+    "index.html": "/josephmaniquis-portfolio/index.html",
+    "main.adeb26bc.css.map": "/josephmaniquis-portfolio/static/css/main.adeb26bc.css.map",
+    "main.027b8038.js.map": "/josephmaniquis-portfolio/static/js/main.027b8038.js.map",
+    "453.0c513b9e.chunk.js.map": "/josephmaniquis-portfolio/static/js/453.0c513b9e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.adeb26bc.css",
+    "static/js/main.027b8038.js"
+  ]
+}
