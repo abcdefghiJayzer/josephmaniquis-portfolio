@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,38 +17,38 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
     if (isOpen) toggleMenu();
   };
 
-  const handleScroll = useCallback(() => {
-    const sections = [
-      { ref: homeRef, id: "home" },
-      { ref: aboutRef, id: "about" },
-      { ref: projectsRef, id: "projects" },
-      { ref: contactRef, id: "contact" },
-    ];
-
-    const navbarHeight = document.querySelector("nav").offsetHeight;
-    const viewportHeight = window.innerHeight;
-    const tolerance = 1 * viewportHeight; 
-
-    sections.forEach(({ ref, id }) => {
-      const rect = ref.current.getBoundingClientRect();
-      const sectionMidPoint = rect.top + rect.height / 2;
-
-      if (
-        sectionMidPoint - navbarHeight >= 0 &&
-        sectionMidPoint - navbarHeight <= tolerance
-      ) {
-        setActiveSection(id);
-      }
-    });
-  }, [homeRef, aboutRef, projectsRef, contactRef]); // Add dependencies for refs
-
   useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        { ref: homeRef, id: "home" },
+        { ref: aboutRef, id: "about" },
+        { ref: projectsRef, id: "projects" },
+        { ref: contactRef, id: "contact" },
+      ];
+
+      const navbarHeight = document.querySelector("nav").offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const tolerance = 1 * viewportHeight;
+
+      sections.forEach(({ ref, id }) => {
+        const rect = ref.current.getBoundingClientRect();
+        const sectionMidPoint = rect.top + rect.height / 2;
+
+        if (
+          sectionMidPoint - navbarHeight >= 0 &&
+          sectionMidPoint - navbarHeight <= tolerance
+        ) {
+          setActiveSection(id);
+        }
+      });
+    };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [handleScroll]);
-  
+  }, [homeRef, aboutRef, projectsRef, contactRef]);
 
   return (
     <nav className="top-0 z-50 sticky bg-neutral-950 px-5">
@@ -88,14 +88,22 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
         </button>
 
         <div
-          className={`w-full md:block md:w-auto ${isOpen ? "absolute top-full left-0 right-0 bg-gray-100 z-20" : "hidden"}`}
+          className={`w-full md:block md:w-auto ${
+            isOpen
+              ? "absolute top-full left-0 right-0 bg-gray-100 z-20"
+              : "hidden"
+          }`}
           id="navbar-default"
         >
           <ul className="flex md:flex-row flex-col md:space-x-8 rtl:space-x-reverse md:border-0 bg-neutral-950 md:mt-0 p-4 md:p-0 font-medium w-full">
             <li>
               <button
                 onClick={() => scrollToSection(homeRef, "home")}
-                className={`block ${activeSection === "home" ? "bg-neutral-400 md:bg-transparent md:text-white" : "text-neutral-700"} px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left ${
+                  activeSection === "home"
+                    ? "bg-neutral-400 md:bg-transparent md:text-white"
+                    : ""
+                }`}
               >
                 Home
               </button>
@@ -103,7 +111,11 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             <li>
               <button
                 onClick={() => scrollToSection(aboutRef, "about")}
-                className={`block ${activeSection === "about" ? "bg-neutral-400 md:bg-transparent md:text-white" : "text-neutral-700"} px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left ${
+                  activeSection === "about"
+                    ? "bg-neutral-400 md:bg-transparent md:text-white"
+                    : ""
+                }`}
               >
                 About
               </button>
@@ -111,7 +123,11 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             <li>
               <button
                 onClick={() => scrollToSection(projectsRef, "projects")}
-                className={`block ${activeSection === "projects" ? "bg-neutral-400 md:bg-transparent md:text-white" : "text-neutral-700"} px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left ${
+                  activeSection === "projects"
+                    ? "bg-neutral-400 md:bg-transparent md:text-white"
+                    : ""
+                }`}
               >
                 Projects
               </button>
@@ -119,7 +135,11 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             <li>
               <button
                 onClick={() => scrollToSection(contactRef, "contact")}
-                className={`block ${activeSection === "contact" ? "bg-neutral-400 md:bg-transparent md:text-white" : "text-neutral-700"} px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left ${
+                  activeSection === "contact"
+                    ? "bg-neutral-400 md:bg-transparent md:text-white"
+                    : ""
+                }`}
               >
                 Contact
               </button>
