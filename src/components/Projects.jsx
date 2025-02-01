@@ -3,7 +3,6 @@ import vid2 from "./../assets/vid2.mp4";
 import vid3 from "./../assets/vid3.mp4";
 import vid4 from "./../assets/vid4.mp4";
 import img1 from "./../assets/7.png";
-import img2 from "./../assets/1.1.png";
 import "./../css/projects.css";
 
 function Projects() {

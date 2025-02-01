@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
     if (isOpen) toggleMenu();
   };
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const sections = [
       { ref: homeRef, id: "home" },
       { ref: aboutRef, id: "about" },
@@ -40,7 +40,7 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
         setActiveSection(id);
       }
     });
-  };
+  }, [homeRef, aboutRef, projectsRef, contactRef]); // Add dependencies for refs
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -88,35 +88,22 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
         </button>
 
         <div
-          className={`w-full md:block md:w-auto ${
-            isOpen
-              ? "absolute top-full left-0 right-0 bg-gray-100 z-20"
-              : "hidden"
-          }`}
+          className={`w-full md:block md:w-auto ${isOpen ? "absolute top-full left-0 right-0 bg-gray-100 z-20" : "hidden"}`}
           id="navbar-default"
         >
           <ul className="flex md:flex-row flex-col md:space-x-8 rtl:space-x-reverse md:border-0 bg-neutral-950 md:mt-0 p-4 md:p-0 font-medium w-full">
             <li>
               <button
                 onClick={() => scrollToSection(homeRef, "home")}
-                className={`block ${
-                  activeSection === "home"
-                    ? "bg-neutral-400 md:bg-transparent md:text-white"
-                    : "text-neutral-700"
-                } px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
+                className={`block ${activeSection === "home" ? "bg-neutral-400 md:bg-transparent md:text-white" : "text-neutral-700"} px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
               >
                 Home
               </button>
             </li>
-
             <li>
               <button
                 onClick={() => scrollToSection(aboutRef, "about")}
-                className={`block ${
-                  activeSection === "about"
-                    ? "bg-neutral-400 md:bg-transparent md:text-white"
-                    : "text-neutral-700"
-                } px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
+                className={`block ${activeSection === "about" ? "bg-neutral-400 md:bg-transparent md:text-white" : "text-neutral-700"} px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
               >
                 About
               </button>
@@ -124,11 +111,7 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             <li>
               <button
                 onClick={() => scrollToSection(projectsRef, "projects")}
-                className={`block ${
-                  activeSection === "projects"
-                    ? "bg-neutral-400 md:bg-transparent md:text-white"
-                    : "text-neutral-700"
-                } px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
+                className={`block ${activeSection === "projects" ? "bg-neutral-400 md:bg-transparent md:text-white" : "text-neutral-700"} px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
               >
                 Projects
               </button>
@@ -136,11 +119,7 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             <li>
               <button
                 onClick={() => scrollToSection(contactRef, "contact")}
-                className={`block ${
-                  activeSection === "contact"
-                    ? "bg-neutral-400 md:bg-transparent md:text-white"
-                    : "text-neutral-700"
-                } px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
+                className={`block ${activeSection === "contact" ? "bg-neutral-400 md:bg-transparent md:text-white" : "text-neutral-700"} px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left`}
               >
                 Contact
               </button>
