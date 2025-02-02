@@ -5,7 +5,7 @@ import "./../css/Home.css";
 
 function Home() {
   return (
-    <div className="mx-auto max-w-screen-xl text-white pt-32 md:pt-10 ">
+    <div className="mx-auto max-w-screen-xl text-white pt-32 md:pt-10">
       <div className="flex md:flex-row flex-col px-5 lg:px-28 pt-10 h-full items-center">
         <div className="flex-grow pb-10 md:pb-20 ">
           <div class="sign font-extrabold pb-2">

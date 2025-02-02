@@ -1,106 +1,155 @@
-import vid1 from "./../assets/vid1.mp4";
-import vid2 from "./../assets/vid2.mp4";
-import vid3 from "./../assets/vid3.mp4";
-import vid4 from "./../assets/vid4.mp4";
-import img1 from "./../assets/7.png";
 import "./../css/projects.css";
+import pizzahtml from "./../assets/pizzahtml.mp4";
+import linktechtalk from "./../assets/linktech.mp4";
+import pizzaco from "./../assets/pizzaco.mp4";
+import mbtc from "./../assets/mbtc.mp4";
+import tracker from "./../assets/tracker.mp4";
 
 function Projects() {
+  const projects = [
+    {
+      video: mbtc,
+      title: "MBTC Car Rental System",
+      description:
+        "A user-friendly, responsive car rental platform with seamless booking management and intuitive admin controls for efficient operations.",
+      link: "https://manibelatransport.com/", // YouTube link
+      github: "https://github.com/abcdefghiJayzer/capstone2.2", // GitHub link
+      tags: ["Laravel", "MySQL", "Tailwind", "JavaScript", "API"], // Flair tags
+    },
+    {
+      video: pizzaco,
+      title: "Pizza.co",
+      description:
+        "A pizza website built with Laravel, featuring CRUD functionality for menu management.",
+      github: "https://github.com/abcdefghiJayzer/pizza.co", // GitHub link
+      tags: ["Laravel", "MySQL", "Tailwind", "JavaScript", "API"], // Flair tags
+    },
+    {
+      video: linktechtalk,
+      title: "LinkTechTalk Blog",
+      description:
+        "A mobile-responsive tech blog where users can read, comment, and engage with posts, while admins manage content seamlessly.",
+      link: "", // No YouTube link
+      github: "https://github.com/abcdefghiJayzer/LinkTechTalk", // GitHub link
+      tags: ["Laravel", "MySQL", "Tailwind", "JavaScript", "API"], // Flair tags
+    },
+    {
+      video: pizzahtml,
+      title: "Pizza.co - Web Design",
+      description:
+        "A fully responsive static website crafted with vanilla HTML and CSS.",
+      link: "https://pizza-co-html.netlify.app/",
+      github: "https://github.com/abcdefghiJayzer/pizza.co-HTML", // GitHub link
+      tags: ["HTML", "CSS", "JavaScript"], // Flair tags
+    },
+    {
+      video: tracker,
+      title: "Employee Tracker System",
+      description:
+        "A simple Laravel-based system for tracking employee details, with features for managing records efficiently.",
+      link: "", // No YouTube link
+      github: "https://github.com/abcdefghiJayzer/employeeTracker", // GitHub link
+      tags: ["Laravel", "MySQL", "JavaScript", "Bootstrap"], // Flair tags
+    },
+  ];
+
+  const tagColors = {
+    HTML: "bg-neutral-400",
+    CSS: "bg-cyan-300",
+    Tailwind: "bg-blue-300",
+    Laravel: "bg-red-700",
+    MySQL: "bg-black",
+    React: "bg-cyan-500",
+    JavaScript: "bg-orange-500",
+    API: "bg-green-700",
+    Bootstrap: "bg-purple-600",
+  };
+
   return (
-    <div className="relative py-20 lg:pb-80">
-      <div className="flex justify-center pb-10">
-        <h1 className="text-white text-5xl">Projects</h1>
-      </div>
-      <div className="flex justify-center px-2 ">
-        <div className="max-w-screen-lg flex overflow-x-auto space-x-4 px-4 py-10 no_scrollbar">
-          {/* Each project card */}
-          <div className="flex-shrink-0 w-64 md:w-96 rounded-xl overflow-hidden shadow-lg bg-neutral-200">
-            <div className="bg-cover bg-center">
-              <video
-                src={vid1}
-                autoPlay
-                loop
-                muted
-                className="w-full h-auto"
-              ></video>
-            </div>
-            <div className="px-6 pt-8 pb-8">
-              <div className="font-bold text-2xl py-4">Cat Website</div>
-              <p className="text-gray-700 text-base text-justify">
-                A personal project website made for my cat. It showcases my cat
-                Nini. The site aims to capture the joy she brings to my life and
-                share it with fellow cat lovers.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex-shrink-0 w-64 md:w-96 rounded-xl overflow-hidden shadow-lg bg-neutral-200">
-            <div className="bg-cover bg-center">
-              <video
-                src={vid4}
-                autoPlay
-                loop
-                muted
-                className="w-full h-auto"
-              ></video>
-            </div>
-            <div className="px-6 pt-8 md:pb-20">
-              <div className="font-bold text-2xl py-4">MBTC Website</div>
-              <p className="text-gray-700 text-base">
-                A capstone project that aims to create a booking website for van
-                rental cooperative and manage their system for a more efficient
-                work flow.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex-shrink-0 w-64 md:w-96 rounded-xl overflow-hidden shadow-lg bg-neutral-200">
-            <div className="bg-cover bg-center">
-              <video
-                src={vid2}
-                autoPlay
-                loop
-                muted
-                className="w-full h-auto"
-              ></video>
-            </div>
-            <div className="px-6 pt-8 pb-8">
-              <div className="font-bold text-2xl py-4">Pizza.co</div>
-              <p className="text-gray-700 text-base">
-                A website for a pizza business. Equipped with the business' menu
-                and branch locator.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex-shrink-0 w-64 md:w-96 rounded-xl overflow-hidden shadow-lg bg-neutral-200">
-            <div className="bg-cover bg-center">
-              <video
-                src={vid3}
-                autoPlay
-                loop
-                muted
-                className="w-full h-auto"
-              ></video>
-            </div>
-            <div className="px-6 pt-8 pb-8">
-              <div className="font-bold text-2xl py-4">Portfolio 2.0</div>
-              <p className="text-gray-700 text-base">
-                A portfolio website project. Made with HTML, CSS, and
-                Javascript. This website showcases my skills and projects in web
-                development.
-              </p>
-            </div>
-          </div>
+    <div className="relative z-10 bg-neutral-100 py-20 md:py-32">
+      <div className="mx-auto max-w-screen-xl text-black px-4 md:px-12">
+        <div className="flex flex-col lg:flex-row mx-auto text-center py-10 justify-center items-center">
+          <h1 className="text-6xl text-neutral-900 uppercase font-bold">
+            Projects /
+          </h1>
         </div>
-      </div>
-      <div className="hidden md:block bottom-0 transform absolute w-full bg-neutral-900 text-neutral-900"><h1>.</h1></div>
 
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 mt-8 text-left">
+          {projects.map((project, index) => (
+            <div key={index} className="relative group">
+              {/* Prioritize website link, fallback to GitHub if not available */}
+              <a
+                href={project.link ? project.link : project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="overflow-hidden rounded-lg">
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      className="w-full h-[250px] md:h-[320px] object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    />
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-[100px] object-contain transition-transform duration-100 ease-in-out group-hover:scale-110"
+                    />
+                  )}
+                </div>
+              </a>
 
-      {/* Wrapper for image and other content */}
-      <div className="hidden lg:block absolute bottom-0 left-1/2 transform mt-10">
-        <img src={img1} alt="Description of image" className="" /> 
-        
+              <div className="mt-4 flex flex-wrap space-x-6">
+                {project.tags.map((tag, tagIndex) => (
+                  <span
+                    key={tagIndex}
+                    className={`text-xs font-semibold text-white ${tagColors[tag]} px-3 py-1 rounded-full`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-4 flex flex-row justify-between text-left w-full">
+                <h2 className="text-2xl font-bold text-neutral-900 uppercase text-left">
+                  {project.title}
+                </h2>
+
+                <div className="flex space-x-6 pl-10">
+                  {/* External Link Icon (if available) */}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-600 hover:text-neutral-900"
+                    >
+                      <i className="fa-solid fa-arrow-up-right-from-square  text-2xl"></i>
+                    </a>
+                  )}
+
+                  {/* GitHub Icon */}
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-600 hover:text-neutral-900"
+                  >
+                    <i className="fa-brands fa-github text-2xl"></i>
+                  </a>
+                </div>
+              </div>
+
+              <p className="text-base text-neutral-700 mt-2 pb-4">
+                {project.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

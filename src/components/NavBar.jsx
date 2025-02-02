@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
+export default function NavBar({ homeRef, aboutRef, skillRef, projectsRef, contactRef }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -22,6 +22,7 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
       const sections = [
         { ref: homeRef, id: "home" },
         { ref: aboutRef, id: "about" },
+        { ref: skillRef, id: "skill" },
         { ref: projectsRef, id: "projects" },
         { ref: contactRef, id: "contact" },
       ];
@@ -48,7 +49,7 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [homeRef, aboutRef, projectsRef, contactRef]);
+  }, [homeRef, aboutRef, skillRef, projectsRef, contactRef,]);
 
   return (
     <nav className="top-0 z-50 sticky bg-neutral-950 px-5">
@@ -68,7 +69,7 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
         <button
           onClick={toggleMenu}
           type="button"
-          className="inline-flex justify-center items-center md:hidden p-2 text-white hover:text-gray-300 focus:outline-none transition-all"
+          className="inline-flex justify-center items-center md:hidden p-2 text-white hover:text-neutral-400 focus:outline-none transition-all"
           aria-controls="navbar-default"
           aria-expanded={isOpen}
         >
@@ -102,9 +103,9 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             <li>
               <button
                 onClick={() => scrollToSection(homeRef, "home")}
-                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left ${
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left hover:text-neutral-400 ${
                   activeSection === "home"
-                    ? "bg-neutral-400 md:bg-transparent md:text-white"
+                    ? "bg-neutral-400 md:bg-transparent md:text-orange-500"
                     : ""
                 }`}
               >
@@ -114,9 +115,9 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             <li>
               <button
                 onClick={() => scrollToSection(aboutRef, "about")}
-                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left ${
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left hover:text-neutral-400 ${
                   activeSection === "about"
-                    ? "bg-neutral-400 md:bg-transparent md:text-white"
+                    ? "bg-neutral-400 md:bg-transparent md:text-orange-500"
                     : ""
                 }`}
               >
@@ -125,10 +126,22 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             </li>
             <li>
               <button
+                onClick={() => scrollToSection(skillRef, "skill")}
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left hover:text-neutral-400 ${
+                  activeSection === "skill"
+                    ? "bg-neutral-400 md:bg-transparent md:text-orange-500"
+                    : ""
+                }`}
+              >
+                Skills
+              </button>
+            </li>
+            <li>
+              <button
                 onClick={() => scrollToSection(projectsRef, "projects")}
-                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left ${
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left hover:text-neutral-400 ${
                   activeSection === "projects"
-                    ? "bg-neutral-400 md:bg-transparent md:text-white"
+                    ? "bg-neutral-400 md:bg-transparent md:text-orange-500"
                     : ""
                 }`}
               >
@@ -138,9 +151,9 @@ export default function NavBar({ homeRef, aboutRef, projectsRef, contactRef }) {
             <li>
               <button
                 onClick={() => scrollToSection(contactRef, "contact")}
-                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left ${
+                className={`block px-3 py-2 md:p-0 rounded text-neutral-700 w-full text-left hover:text-neutral-400 ${
                   activeSection === "contact"
-                    ? "bg-neutral-400 md:bg-transparent md:text-white"
+                    ? "bg-neutral-400 md:bg-transparent md:text-orange-500"
                     : ""
                 }`}
               >

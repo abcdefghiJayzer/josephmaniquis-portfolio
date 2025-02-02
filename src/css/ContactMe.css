@@ -3,9 +3,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-.bg {
-  background: black;
-}
+
 .contact {
   padding: 10px;
 }
@@ -37,7 +35,6 @@ textarea {
 }
 
 #container {
-  border: solid 3px #ffffff; /* Changed border color to white */
   margin: 0 auto;
   max-width: 650px;
   max-height: 650px;
@@ -45,9 +42,6 @@ textarea {
   width: 100%;
 }
 
-form {
-  padding: 45px;
-}
 
 h2 {
   color: #ffffff;
@@ -121,9 +115,9 @@ textarea {
 }
 
 #form_button {
-  background: none;
-  border: solid 2px #ffffff; /* Changed border color to white */
-  color: #ffffff;
+  background: white; /* Default background white */
+  border: solid 2px #ffffff; /* White border */
+  color: #000000; /* Black text */
   cursor: pointer;
   display: inline-block;
   font-family: Helvetica, Arial, sans-serif;
@@ -133,7 +127,24 @@ textarea {
   padding: 20px 35px;
   text-transform: uppercase;
   transition: all 0.3s;
+  width: 100%;
+  border-radius: 10px;
 }
+
+#form_button:hover {
+  background: #FFA500; /* Orange background on hover */
+  color: #000000; /* Black text */
+}
+
+.message-sent {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
 
 .submit {
   text-align: center;
