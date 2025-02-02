@@ -47,7 +47,7 @@ class ContactMe extends React.Component {
               </a>
 
               <a
-                href="/Jayzer-Joseph-Maniquis-CV.pdf"
+                href="/Jayzer-Joseph-Maniquis-Resume.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
