@@ -103,11 +103,11 @@ function Projects() {
                 </div>
               </a>
 
-              <div className="mt-4 flex flex-wrap space-x-6">
+              <div className="mt-4 flex flex-wrap">
                 {project.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className={`text-xs font-semibold text-white ${tagColors[tag]} px-3 py-1 rounded-full`}
+                    className={`text-xs md:text-sm font-semibold text-white ${tagColors[tag]} px-3 py-1 rounded-full mr-2 my-2`}
                   >
                     {tag}
                   </span>
