@@ -16,7 +16,6 @@ function App() {
 
   return (
     <div className="font-poppins">
-     
       <NavBar
         homeRef={homeRef}
         aboutRef={aboutRef}
@@ -26,7 +25,7 @@ function App() {
       />
 
       <div ref={homeRef}>
-        <Home />
+        <Home contactRef={contactRef} />
       </div>
       <div ref={aboutRef}>
         <About />
